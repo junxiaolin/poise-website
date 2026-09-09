@@ -143,11 +143,11 @@ h1 {
 
 .affiliation-logos {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 132fr) minmax(0, 132fr) minmax(0, 216fr);
   align-items: center;
-  gap: clamp(14px, 3vw, 36px);
-  width: min(100%, 680px);
-  margin: 22px auto 0;
+  column-gap: clamp(24px, 8vw, 112px);
+  width: min(100%, 704px);
+  margin: 28px auto 0;
 }
 
 .affiliation-logos a {
@@ -155,7 +155,7 @@ h1 {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 76px;
+  min-height: 60px;
 }
 
 .institution-logo {
@@ -164,10 +164,11 @@ h1 {
   height: auto;
 }
 
-/* Preserve each logo's proportions; balance visual weight rather than height. */
-.institution-logo--sydney { width: 180px; }
-.institution-logo--sharpa { width: min(140px, 85%); }
-.institution-logo--hku { width: 230px; }
+/* The Sydney shield is visually dense: use a smaller width than the HKU lockup.
+   Proportional columns preserve the balance as the entire row scales down. */
+.institution-logo--sydney { width: 132px; }
+.institution-logo--sharpa { width: 132px; }
+.institution-logo--hku { width: 216px; }
 
 .project-links {
   display: flex;
