@@ -141,6 +141,34 @@ h1 {
   line-height: 1.5;
 }
 
+.affiliation-logos {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(14px, 3vw, 36px);
+  width: min(100%, 680px);
+  margin: 22px auto 0;
+}
+
+.affiliation-logos a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 76px;
+}
+
+.institution-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Preserve each logo's proportions; balance visual weight rather than height. */
+.institution-logo--sydney { width: 180px; }
+.institution-logo--sharpa { width: min(140px, 85%); }
+.institution-logo--hku { width: 230px; }
+
 .project-links {
   display: flex;
   justify-content: center;
