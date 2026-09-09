@@ -8,7 +8,14 @@ The University of Sydney · Sharpa · The University of Hong Kong.
 
 Project website: <https://junxiaolin.github.io/poise/>.
 This repository contains the project website and browser demos, not the planned
-training-code release. Paper and training-code links will be added when public.
+training-code release. The named [paper PDF](assets/papers/poise.pdf) is available
+from the homepage; the Code button is disabled and marked **Coming soon** until
+the training-code release is public.
+
+When updating `assets/papers/poise.pdf`, build the named manuscript with
+`\anonymousfalse` and verify that it includes the author byline and links to
+`https://junxiaolin.github.io/poise/`. Do not upload an anonymous review PDF or
+change the review manuscript's default mode merely to build this public copy.
 
 Static project page and browser-based interactive demo, hosted by GitHub Pages
 from the `main` branch at the repository root. No build service is required.
