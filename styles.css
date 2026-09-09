@@ -164,11 +164,11 @@ h1 {
   height: auto;
 }
 
-/* Equal-width columns keep Sharpa on the page centerline. Scale the artwork
-   inside each column, preserving the 198:198:324 visual-width ratio. */
-.institution-logo--sydney { width: min(198px, 61.111111%); }
-.institution-logo--sharpa { width: min(198px, 61.111111%); }
-.institution-logo--hku { width: 324px; }
+/* Equal-width columns keep Sharpa centered. Optical sizing balances Sydney's
+   dense shield, Sharpa's bold wordmark, and HKU's longer bilingual lockup. */
+.institution-logo--sydney { width: min(180px, 75%); }
+.institution-logo--sharpa { width: min(190px, 79.166667%); }
+.institution-logo--hku { width: 240px; }
 
 .project-links {
   display: flex;
