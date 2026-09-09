@@ -1,0 +1,30 @@
+{
+  "files": [
+    "meshes/DP_HB1_4F.STL",
+    "meshes/DP_HB1_TH.STL",
+    "meshes/DP_Visual_HB1_TH.STL",
+    "meshes/DP_visual_HB1_4F.STL",
+    "meshes/MCP_VL.STL",
+    "meshes/elastomer_HB1_4F.STL",
+    "meshes/elastomer_HB1_TH.STL",
+    "meshes/hammer_collision_handle.obj",
+    "meshes/hammer_collision_head.obj",
+    "meshes/hammer_visual.obj",
+    "meshes/right_MCP_VL_visual.STL",
+    "meshes/right_MP.STL",
+    "meshes/right_MP_visual.STL",
+    "meshes/right_PP.STL",
+    "meshes/right_PP_visual.STL",
+    "meshes/right_hand_C_MC.STL",
+    "meshes/right_hand_C_MC_visual_.STL",
+    "meshes/right_pinky_MC.STL",
+    "meshes/right_pinky_MC_visual.STL",
+    "meshes/right_thumb_CMC_VL_visual.STL",
+    "meshes/right_thumb_MC.STL",
+    "meshes/right_thumb_MCP_VL_visual.STL",
+    "meshes/right_thumb_MC_visual.STL",
+    "meshes/right_thumb_PP.STL",
+    "meshes/right_thumb_PP_visual.STL",
+    "scene.xml"
+  ]
+}

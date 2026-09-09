@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#f5f5f3" />
+    <meta name="description" content="Explore dexterous in-hand manipulation with Sharpa Wave. Interactive Hammer and HexPrism policy simulations." />
+    <title>Policy demo</title>
+    <script>
+      // This guard is inline: it must work even if the main JS never downloads.
+      (() => {
+        let settled = false;
+        const showFailure = (detail) => {
+          if (settled) return;
+          settled = true;
+          clearTimeout(timer);
+          window.__sharpaStartupFailed = true;
+          const show = () => {
+            const loading = document.getElementById("loading");
+            if (!loading) return;
+            loading.classList.remove("done"); loading.classList.add("failed");
+            loading.querySelector("h2").textContent = "Unable to load simulation";
+            document.getElementById("loading-detail").textContent = detail;
+            const button = document.getElementById("reload-simulation");
+            button.classList.remove("hidden"); button.textContent = "Retry loading";
+            button.onclick = () => {
+              const url = new URL(location.href);
+              url.searchParams.set("reload", Date.now().toString());
+              location.replace(url.href);
+            };
+          };
+          if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", show, {once:true});
+          else show();
+          window.dispatchEvent(new Event("sharpa-startup-failed"));
+        };
+        const timer = setTimeout(() => showFailure("Loading timed out. Please retry; your connection may have been interrupted."), 90000);
+        window.addEventListener("sharpa-ready", () => {settled = true; clearTimeout(timer);}, {once:true});
+        window.addEventListener("sharpa-load-error", e => showFailure(e.detail || "A simulation resource could not be loaded. Please retry."));
+        window.addEventListener("error", e => {
+          if (!settled && (e.target instanceof HTMLScriptElement || e.target === window)) {
+            showFailure("The simulation could not start. Please retry loading.");
+          }
+        }, true);
+        window.addEventListener("unhandledrejection", () => {
+          if (!settled) showFailure("A simulation resource could not be loaded. Please retry.");
+        });
+      })();
+    </script>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232b3935'/%3E%3Cpath d='M17 19l5 27 7-19 6 19 12-27' fill='none' stroke='%23fff' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E" />
+    <script type="module" crossorigin src="./assets/index-DIOTI7OA.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DQ1fMcHb.css">
+  </head>
+  <body>
+    <main id="app">
+      <section id="viewport" aria-label="3D simulation" tabindex="0">
+        <button id="camera-home" class="tool-button" title="Restore camera view" aria-label="Restore camera view"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5M8 12a4 4 0 1 0 4-4"/><path d="m8 7 0 5 5 0"/></svg></button>
+        <div class="scene-footer">
+          <div class="object-legend"><span><i class="legend-current"></i>Current</span><span><i class="legend-target"></i>Target</span></div>
+          <div id="axes-legend" class="axes-legend"><span class="axis x">X</span><span class="axis y">Y</span><span class="axis z">Z</span></div>
+          <p class="gesture-hint">Drag to orbit · Scroll to zoom · Pull object to disturb</p>
+        </div>
+        <div id="toast" role="status"></div>
+        <div id="loading" aria-live="polite"><div class="loader-ring"></div><h2>Preparing simulation</h2><p id="loading-detail">Loading the policy…</p><div class="load-track"><span id="load-progress"></span></div><button id="reload-simulation" class="text-button hidden">Restart simulation</button><noscript>Enable JavaScript to run this simulation.</noscript></div>
+      </section>
+      <aside id="panel" aria-label="Target controls">
+        <label class="object-picker" for="object-select"><span>Object</span><select id="object-select" aria-label="Object"><option value="hexhammer" selected>Hammer</option><option value="hexprism40">HexPrism</option></select></label>
+        <section class="target-section">
+          <p class="eyebrow">EXPLORE</p>
+          <h2>Give it a new target.</h2>
+          <button id="random-target" class="primary-button" title="Random feasible target: center displacement 10–100 mm, rotation 5–180°" disabled><span class="motion-label"><span class="motion-name">Random range</span><small>10–100 mm · 5–180°</small></span><kbd>R</kbd><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></button>
+          <div class="secondary-actions">
+            <button id="fullrange-target" title="Fixed center displacement 100 mm and rotation 180°; retry until feasible. R or Reset cancels." disabled><span class="motion-label"><span class="motion-name">Fixed max</span><small>100 mm · 180°</small></span><kbd>F</kbd></button>
+            <button id="reset" disabled><span>Reset</span><kbd>⌫</kbd></button>
+          </div>
+        </section>
+        <section class="metrics" aria-label="Target error">
+          <div class="metric"><span>Position error</span><strong id="position-error">—</strong></div>
+          <div class="metric"><span>Rotation error</span><strong id="rotation-error">—</strong></div>
+        </section>
+        <section id="keyboard-help" class="keyboard-help" aria-labelledby="keyboard-title">
+          <h3 id="keyboard-title">Fine control</h3>
+          <table aria-label="Target translation and rotation shortcuts">
+            <thead><tr><th scope="col">Root axis</th><th scope="col">Move <small>±10 mm</small></th><th scope="col">Rotate <small>±30°</small></th></tr></thead>
+            <tbody>
+              <tr><th scope="row" class="axis x">X</th><td><kbd>S / W</kbd></td><td><kbd>1 / 2</kbd></td></tr>
+              <tr><th scope="row" class="axis y">Y</th><td><kbd>A / D</kbd></td><td><kbd>3 / 4</kbd></td></tr>
+              <tr><th scope="row" class="axis z">Z</th><td><kbd>E / Q</kbd></td><td><kbd>5 / 6</kbd></td></tr>
+            </tbody>
+          </table>
+          <p class="key-pair"><span><kbd>0</kbd> Current pose</span><span><kbd>X</kbd> Toggle axes</span></p>
+        </section>
+        <p id="model-warning" class="warning hidden" role="status"></p>
+      </aside>
+    </main>
+  </body>
+</html>

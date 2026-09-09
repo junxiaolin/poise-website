@@ -1,0 +1,221 @@
+{
+  "checkpoint": {
+    "filename": "model_89800.pt",
+    "is_requested_final": true,
+    "iteration": 89800,
+    "requested_final_iteration": 89800,
+    "requested_final_sha256": "ecb2d3d27172349ee77aa8f4747eccc85095d942142bbb9fbd5c5deb9fadf041",
+    "sha256": "ecb2d3d27172349ee77aa8f4747eccc85095d942142bbb9fbd5c5deb9fadf041"
+  },
+  "control": {
+    "action_scale_rad": 0.041666666666666664,
+    "decimation": 6,
+    "physics_frequency_hz": 120,
+    "policy_frequency_hz": 20,
+    "update": "q_cmd=clamp(q_cmd+clip(action,-1,1)/24,joint_limits)"
+  },
+  "golden": {
+    "browser_atol": 0.0003,
+    "browser_rtol": 5e-06,
+    "count": 8,
+    "filename": "golden_vectors.npz",
+    "onnx_max_abs_error": null,
+    "onnxruntime_python_verification": "not_run_onnxruntime_python_unavailable",
+    "seed": 20260905,
+    "sha256": "e01a51a24c814128aee12b2678b4f92a3e3eb5cbc28fcd4ef85ec81717a6c7f8",
+    "web_filename": "golden_vectors.bin",
+    "web_sha256": "496978a87f5b825ad2740259b3c4202c71b02865e1be82fffb0211416aab8cfa"
+  },
+  "joint_order": [
+    "right_thumb_CMC_FE",
+    "right_thumb_CMC_AA",
+    "right_thumb_MCP_FE",
+    "right_thumb_MCP_AA",
+    "right_thumb_IP",
+    "right_index_MCP_FE",
+    "right_index_MCP_AA",
+    "right_index_PIP",
+    "right_index_DIP",
+    "right_middle_MCP_FE",
+    "right_middle_MCP_AA",
+    "right_middle_PIP",
+    "right_middle_DIP",
+    "right_ring_MCP_FE",
+    "right_ring_MCP_AA",
+    "right_ring_PIP",
+    "right_ring_DIP",
+    "right_pinky_CMC",
+    "right_pinky_MCP_FE",
+    "right_pinky_MCP_AA",
+    "right_pinky_PIP",
+    "right_pinky_DIP"
+  ],
+  "observation": {
+    "contract": "sharpa_pose6d_v1_notactile_244_bps64_gravity",
+    "dimension": 244,
+    "layout": [
+      {
+        "name": "history.t_minus_2.q",
+        "start": 0,
+        "stop": 22,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "history.t_minus_2.q_cmd",
+        "start": 22,
+        "stop": 44,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "history.t_minus_1.q",
+        "start": 44,
+        "stop": 66,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "history.t_minus_1.q_cmd",
+        "start": 66,
+        "stop": 88,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "history.t.q",
+        "start": 88,
+        "stop": 110,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "history.t.q_cmd",
+        "start": 110,
+        "stop": 132,
+        "units": "scaled_joint_position"
+      },
+      {
+        "name": "object_pose_palm",
+        "start": 132,
+        "stop": 139,
+        "units": "xyz_qwqxqyqz"
+      },
+      {
+        "name": "target_pose_palm",
+        "start": 139,
+        "stop": 146,
+        "units": "xyz_qwqxqyqz"
+      },
+      {
+        "name": "pose_error",
+        "start": 146,
+        "stop": 153,
+        "units": "xyz_qwqxqyqz"
+      },
+      {
+        "name": "current_anchor_pos_palm",
+        "start": 153,
+        "stop": 156,
+        "units": "m"
+      },
+      {
+        "name": "target_anchor_pos_palm",
+        "start": 156,
+        "stop": 159,
+        "units": "m"
+      },
+      {
+        "name": "anchor_delta",
+        "start": 159,
+        "stop": 162,
+        "units": "m"
+      },
+      {
+        "name": "target_twist_axis_palm",
+        "start": 162,
+        "stop": 165,
+        "units": "unit_vector"
+      },
+      {
+        "name": "target_twist_angle_over_pi",
+        "start": 165,
+        "stop": 166,
+        "units": "normalized"
+      },
+      {
+        "name": "target_translation_axis_palm",
+        "start": 166,
+        "stop": 169,
+        "units": "unit_vector"
+      },
+      {
+        "name": "target_translation_delta_scaled",
+        "start": 169,
+        "stop": 170,
+        "units": "normalized"
+      },
+      {
+        "name": "object_linear_velocity_palm",
+        "start": 170,
+        "stop": 173,
+        "units": "m_per_s"
+      },
+      {
+        "name": "object_angular_velocity_palm",
+        "start": 173,
+        "stop": 176,
+        "units": "rad_per_s"
+      },
+      {
+        "name": "object_mesh_bps64",
+        "start": 176,
+        "stop": 240,
+        "units": "normalized_bps_distance"
+      },
+      {
+        "name": "pose_tracker_confidence",
+        "start": 240,
+        "stop": 241,
+        "units": "unit_interval"
+      },
+      {
+        "name": "gravity_direction_palm",
+        "start": 241,
+        "stop": 244,
+        "units": "unit_vector"
+      }
+    ]
+  },
+  "policy": {
+    "activation": "elu",
+    "clip_actions": 1.0,
+    "input_dim": 244,
+    "input_name": "observation",
+    "linear_layer_shapes": [
+      [
+        244,
+        512
+      ],
+      [
+        512,
+        256
+      ],
+      [
+        256,
+        128
+      ],
+      [
+        128,
+        22
+      ]
+    ],
+    "normalizer_count": 17241792000,
+    "normalizer_eps": 0.01,
+    "observation_mean_max": 0.9700758457183838,
+    "observation_mean_min": -1.0000001192092896,
+    "observation_std_max": 1.9244998693466187,
+    "observation_std_min": 0.0,
+    "onnx_filename": "actor.onnx",
+    "onnx_sha256": "0ca08948e214bae105efe3a179258311f4850852967dbc0351bc62ef7763852e",
+    "opset": 17,
+    "output_dim": 22,
+    "output_name": "action"
+  },
+  "schema": "sharpa_hexhammer_web_policy_v1"
+}
