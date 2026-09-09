@@ -171,16 +171,17 @@ h1 {
 .institution-logo--hku { width: 240px; }
 
 .project-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(100%, 474px);
   gap: 12px;
-  margin: 26px 0 40px;
+  margin: 26px auto 40px;
 }
 
 .project-links a,
 .project-links button {
   display: inline-flex;
+  min-width: 0;
   align-items: center;
   justify-content: center;
   gap: 8px;
@@ -192,6 +193,8 @@ h1 {
   color: var(--ink);
   font-family: inherit;
   font-size: 0.85rem;
+  line-height: 1.25;
+  text-align: center;
   text-decoration: none;
 }
 
