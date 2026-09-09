@@ -143,10 +143,10 @@ h1 {
 
 .affiliation-logos {
   display: grid;
-  grid-template-columns: minmax(0, 132fr) minmax(0, 132fr) minmax(0, 216fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   align-items: center;
-  column-gap: clamp(24px, 9vw, 128px);
-  width: min(100%, 976px);
+  column-gap: clamp(16px, 4.5vw, 64px);
+  width: min(100%, 1100px);
   margin: 28px auto 0;
 }
 
@@ -164,10 +164,10 @@ h1 {
   height: auto;
 }
 
-/* The Sydney shield is visually dense: use a smaller width than the HKU lockup.
-   Proportional columns preserve the balance as the entire row scales down. */
-.institution-logo--sydney { width: 198px; }
-.institution-logo--sharpa { width: 198px; }
+/* Equal-width columns keep Sharpa on the page centerline. Scale the artwork
+   inside each column, preserving the 198:198:324 visual-width ratio. */
+.institution-logo--sydney { width: min(198px, 61.111111%); }
+.institution-logo--sharpa { width: min(198px, 61.111111%); }
 .institution-logo--hku { width: 324px; }
 
 .project-links {
