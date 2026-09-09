@@ -134,6 +134,13 @@ h1 {
   line-height: 1.7;
 }
 
+.author-note {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
 .project-links {
   display: flex;
   justify-content: center;
