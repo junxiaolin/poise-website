@@ -172,8 +172,8 @@ h1 {
 
 .project-links {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  width: min(100%, 474px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 636px);
   gap: 12px;
   margin: 26px auto 40px;
 }
@@ -384,6 +384,8 @@ footer a:hover {
   }
 
   .project-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 360px);
     gap: 8px;
   }
 
