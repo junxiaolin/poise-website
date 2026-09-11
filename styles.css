@@ -84,7 +84,7 @@ main {
 }
 
 .hero {
-  padding: clamp(24px, 4vh, 44px) 0 48px;
+  padding: clamp(20px, 3vh, 36px) 0 48px;
   text-align: center;
 }
 
@@ -103,7 +103,7 @@ h1 {
   justify-content: center;
   flex-wrap: wrap;
   gap: 6px 20px;
-  margin: 18px 0 8px;
+  margin: 14px 0 8px;
   color: var(--ink);
   font-size: 0.9rem;
   line-height: 1.6;
@@ -155,9 +155,7 @@ h1 {
   align-items: center;
   column-gap: clamp(16px, 4.5vw, 64px);
   width: min(100%, 1100px);
-  margin: 30px auto 0;
-  padding-top: 24px;
-  border-top: 1px solid var(--line);
+  margin: 12px auto 0;
 }
 
 .affiliation-logos a {
@@ -165,7 +163,7 @@ h1 {
   align-items: center;
   justify-content: center;
   min-width: 0;
-  min-height: 76px;
+  min-height: 64px;
 }
 
 .institution-logo {
@@ -186,7 +184,7 @@ h1 {
   grid-auto-rows: 1fr;
   width: min(100%, 636px);
   gap: 12px;
-  margin: 20px auto 26px;
+  margin: 16px auto 20px;
 }
 
 .project-links a,
@@ -213,17 +211,6 @@ h1 {
 .project-links a:hover {
   background: var(--panel);
   border-color: var(--muted);
-}
-
-.project-links .project-link--primary {
-  background: var(--ink);
-  border-color: var(--ink);
-  color: #ffffff;
-}
-
-.project-links .project-link--primary:hover {
-  background: #303030;
-  border-color: #303030;
 }
 
 .project-links .project-link--unavailable {
@@ -257,8 +244,8 @@ h1 {
    fold. Smaller screens retain a readable full-width player and normal scroll. */
 @media (min-width: 960px) and (min-height: 640px) {
   .overview-video {
-    width: min(100%, calc((100vh - 360px) * 16 / 9));
-    width: min(100%, calc((100svh - 360px) * 16 / 9));
+    width: min(100%, calc((100vh - 420px) * 16 / 9));
+    width: min(100%, calc((100svh - 420px) * 16 / 9));
   }
 }
 
@@ -428,8 +415,7 @@ footer a:hover {
   }
 
   .affiliation-logos {
-    margin-top: 24px;
-    padding-top: 18px;
+    margin-top: 12px;
   }
 
   .affiliation-logos a {
