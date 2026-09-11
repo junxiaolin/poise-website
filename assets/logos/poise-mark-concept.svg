@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <title>POISE logo concept</title>
+  <desc>A tilted three-dimensional object held within an open palm-shaped curve.</desc>
+  <g stroke="currentColor" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 25v12c0 12 9 19 22 19s22-8 22-20v-5"/>
+    <g transform="rotate(-12 32 27)">
+      <path d="m32 12 12 7v14l-12 7-12-7V19Z"/>
+      <path d="m20 19 12 7 12-7M32 26v14"/>
+    </g>
+  </g>
+</svg>
