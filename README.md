@@ -6,7 +6,7 @@ Junxiao Lin, Tianyue Wu, Jie Yin, Jia Pan, Kaifeng Zhang, and Weiming Zhi.
 
 The University of Sydney · Sharpa · The University of Hong Kong.
 
-Project website: <https://junxiaolin.github.io/poise/>.
+Project website: <https://junxiaolin.github.io/poise-website/>.
 This repository contains the project website and browser demos, not the planned
 training-code release. The named [paper PDF](assets/papers/poise.pdf) is available
 from the homepage; the Code button is disabled and marked **Coming soon** until
@@ -14,7 +14,7 @@ the training-code release is public.
 
 When updating `assets/papers/poise.pdf`, build the named manuscript with
 `\anonymousfalse` and verify that it includes the author byline and links to
-`https://junxiaolin.github.io/poise/`. Do not upload an anonymous review PDF or
+`https://junxiaolin.github.io/poise-website/`. Do not upload an anonymous review PDF or
 change the review manuscript's default mode merely to build this public copy.
 
 Static project page and browser-based interactive demo, hosted by GitHub Pages
@@ -25,17 +25,17 @@ from the `main` branch at the repository root. No build service is required.
 In this repository's **Settings → Pages**, select **Deploy from a branch**,
 branch **main**, folder **/ (root)**. Keep `.nojekyll` at the site root.
 All demo, video, and model assets are served from this repository with relative
-paths, including when the site is hosted under `/poise/`.
+paths, including when the site is hosted under `/poise-website/`.
 
 Before publishing updates, run `python3 tools/check_site.py`. For a local
-subdirectory test, serve a temporary parent directory containing a `poise`
-symlink to this checkout and open `/poise/` in the browser.
+subdirectory test, serve a temporary parent directory containing a `poise-website`
+symlink to this checkout and open `/poise-website/` in the browser.
 
 ## Interactive demo
 
-- Project page: <https://junxiaolin.github.io/poise/#interactive-demo>
-- Full-page demo: <https://junxiaolin.github.io/poise/demo.html>
-- HexPrism deep link: <https://junxiaolin.github.io/poise/demo.html?object=hexprism40>
+- Project page: <https://junxiaolin.github.io/poise-website/#interactive-demo>
+- Full-page demo: <https://junxiaolin.github.io/poise-website/demo.html>
+- HexPrism deep link: <https://junxiaolin.github.io/poise-website/demo.html?object=hexprism40>
 
 The homepage creates the iframe **only after Start demo is clicked**. The full-page
 entry starts immediately. Both use the same versioned, same-origin static artifact
